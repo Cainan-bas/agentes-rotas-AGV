@@ -1,0 +1,83 @@
+Bem-vindos(as) ao primeiro grande desafio prático da disciplina de Inteligência Artificial.
+
+Este trabalho em grupo tem como objetivo consolidar os conhecimentos estudados até aqui sobre agentes inteligentes, especificação PEAS, formulação de problemas de busca, busca cega e busca heurística. O foco não está apenas em rodar algoritmos prontos, mas em compreender com clareza como um problema do mundo real pode ser modelado de forma adequada para que técnicas de busca possam ser aplicadas com sentido e com rigor.
+
+
+
+A proposta é que cada grupo atue como equipe de engenharia de IA diante de um problema concreto que exige planejamento, modelagem e análise. Mais do que encontrar uma solução, espera-se que vocês sejam capazes de justificar as escolhas feitas ao longo do trabalho, defender a heurística adotada e apresentar evidências experimentais que sustentem suas conclusões.
+
+
+
+Como discutimos em sala, em problemas de busca, a qualidade da formulação é decisiva. Um bom algoritmo não corrige uma modelagem ruim. Por isso, este trabalho valoriza tanto a definição do problema quanto a implementação e a análise dos resultados.
+
+
+
+É importante também manter o compromisso com a ética e a transparência em todas as etapas. Ferramentas de IA generativa podem ser usadas como apoio, mas não substituem o entendimento do grupo. Toda escolha relevante deve ser compreendida e defendida por vocês na apresentação oral e, quando necessário, na arguição feita em sala.
+
+Objetivos de aprendizagem
+Ao final deste trabalho, espera-se que os grupos sejam capazes de:
+
+Formular um problema de IA de forma adequada, especificando claramente o agente e seu ambiente de tarefa.
+Produzir uma especificação PEAS detalhada e coerente com o problema escolhido.
+
+Modelar formalmente um problema de busca, definindo espaço de estados, estado inicial, estados objetivo, ações, transições e custo do caminho.
+
+Construir uma heurística para busca informada e apresentar uma justificativa clara de sua admissibilidade.
+
+Implementar e comparar diferentes estratégias de busca em Python, utilizando uma biblioteca apropriada.
+
+Planejar e executar experimentos com múltiplas instâncias do problema, coletando métricas e interpretando os resultados.
+
+Comunicar de forma clara a metodologia adotada, as decisões tomadas, os resultados obtidos e as conclusões do grupo.
+
+Organização da turma e temas
+A turma será organizada em 6 grupos.
+
+Neste semestre, o trabalho terá 3 temas de projeto, e cada tema será desenvolvido por 2 grupos diferentes. O sorteio dos temas será feito em sala.
+
+Dois grupos trabalharão sobre o mesmo tema, mas isso não significa que os trabalhos devam ficar parecidos. Cada grupo deverá construir sua própria modelagem, heurística, instâncias de teste e análise comparativa. Trabalhos muito semelhantes entre si serão analisados com atenção especial.
+
+Algoritmos mínimos obrigatórios
+Todos os grupos deverão implementar e comparar, no mínimo, as seguintes estratégias:
+
+Busca em Largura
+Busca em Profundidade
+
+Busca de Custo Uniforme
+
+Busca Heurística Gulosa
+
+A*
+
+A implementação deverá ser feita em Python. A biblioteca sugerida para este trabalho é a simpleai, por ser adequada ao contexto didático da disciplina e por já oferecer implementações prontas dos algoritmos de busca que estamos estudando. O uso de outra biblioteca só deve ocorrer mediante justificativa clara e aprovação prévia.
+
+Python simpleai. Esta biblioteca é projetada para fins educacionais e permite a modelagem de problemas de busca de forma clara, oferecendo implementações prontas de diversos algoritmos (Busca em Largura, Busca de Custo Uniforme, Busca em Profundidade, A*) e facilitando a extração de estatísticas de desempenho, como o número de nós expandidos e o tempo de execução, essenciais para a análise comparativa exigida.
+
+Instalação: pip install simpleai
+Recursos: A documentação oficial do simpleai pode ser consultada para exemplos de como definir um SearchProblem e utilizar os diferentes algoritmos de busca.
+
+
+------------------------------------------------------------------------------------------------
+
+
+Projeto 3: Planejamento de Rotas de AGVs em Centro de Distribuição Automatizado
+
+Contexto: Centros de distribuição modernos dependem cada vez mais de veículos autônomos guiados, os chamados AGVs, para movimentar mercadorias entre áreas de armazenamento, separação e expedição. Em operações desse tipo, atrasos, gargalos e escolhas ruins de rota podem comprometer a produtividade de todo o sistema logístico.
+
+Descrição do Problema: Seu grupo atuará para uma empresa de logística que opera um centro de distribuição automatizado. O objetivo é desenvolver um agente que planeje a rota mais eficiente para um AGV responsável por coletar um item em um ponto do armazém e entregá-lo a uma doca de expedição.
+
+O ambiente apresenta as seguintes características:
+
+· Mapa interno do armazém: o centro de distribuição é representado por um grid ou grafo, com corredores, cruzamentos, áreas de armazenagem, estações de coleta e docas de entrega.
+
+· Obstáculos fixos: estantes, áreas restritas e estruturas permanentes não podem ser atravessadas.
+
+· Bloqueios temporários: alguns corredores podem ficar temporariamente indisponíveis por manutenção, reabastecimento ou reorganização de pallets.
+
+· Custos diferentes de deslocamento: certos trechos do armazém podem ter custo maior de travessia por conta de congestionamento, circulação intensa ou limites operacionais.
+
+· Restrições de circulação: algumas áreas podem ter sentido único de tráfego ou regras específicas de passagem.
+
+· Prioridade de entrega: dependendo do pedido, pode haver pressão por menor tempo total de atendimento, o que afeta a noção de melhor rota.
+
+Desafio: O agente deve encontrar uma sequência de movimentos que leve o AGV do ponto de partida ao ponto de coleta e, em seguida, até o ponto de entrega, minimizando o custo total da operação. Esse custo pode envolver distância percorrida, tempo estimado de deslocamento e penalidades associadas a congestionamento ou desvios. O agente deve respeitar as restrições do ambiente e produzir rotas que sejam viáveis e eficientes dentro do contexto operacional do armazém.
